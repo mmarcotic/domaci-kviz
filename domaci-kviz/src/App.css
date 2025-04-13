@@ -1,0 +1,180 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+img {
+  padding: 0.5rem;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.answer {
+  text-align: left;
+  font-size: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  border: solid;
+  margin-bottom: 1rem;
+}
+
+.topleft {
+  text-align: center;
+  margin-left: auto;
+  margin-bottom: auto;
+  line-height: 4rem;
+  font-size: 2.5rem;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 1);
+  border:solid;
+  border-radius:100%;
+  height:4rem;
+  width: 4rem;
+  translate: 1rem -1.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.scores {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 0;
+  position: absolute;
+  top: 0.5%;
+  left: 0.5%;
+  width: 100%;
+}
+.scores > span {
+  background-color: rgba(255, 255, 255, 0.4);
+  border:solid;
+  border-color: rgba(0, 0, 0, 0.4);
+  border-width: 1px;
+  margin-right: 3px;
+  border-radius: 20px;
+}
+
+input {
+  background-color: (255, 255, 255, 0.4);
+  border:solid;
+  border-color:rgba(0, 0, 0, 0.4);
+  border-radius:10px;
+  border-width:2px;
+  padding: 0.6em 0.6em;
+  font-size: 1em;
+  width:50%;
+  font-weight: 500;
+  margin: 0.15rem;
+}
+
+.input-div {
+  display:flex;
+  justify-content: center;
+}
+
+.podium-flex {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.podium-span {
+  flex-direction: column;
+  width: "50px";
+  line-height: 1;
+  align-items: center;
+}
+
+.podium {
+  box-sizing: border-box; 
+  border: solid;
+  border-width: 1px;
+  background-color: rgb(83, 178, 241);
+  font-size: 2rem;
+  width: 100px;
+}
+
+.podium-text {
+  max-width: 100px;
+  word-break: break-word;
+  max-height:1rem;
+}
+
+.podium-flex > .scoreboard {
+  display:flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: solid;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.4);
+  align-items: center;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.scoreboard-text {
+  line-height: 0;
+  margin-bottom: 1rem;
+}
+
+.scoreboard-score {
+  font-size: 1.5rem;
+  margin-left:1rem;
+  display: flex;
+}
+
+.mocking {
+  font-size: 1rem;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+}
