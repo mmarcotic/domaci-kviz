@@ -4,6 +4,7 @@ import { use, useState } from 'react';
 import Admin from './game_components/Admin';
 import Player from './game_components/Player';
 import Spectator from './game_components/Spectator';
+import api from './constants';
 
 function Game(role) {
     const storedName = localStorage.getItem("playerName");
@@ -22,7 +23,7 @@ function Game(role) {
     const [finalRole, setFinalRole] = useState(storedRole ? storedRole : role.role);
 
     // this has to be done on BE
-    const playerImageSrc = `/src/assets/${storedImageId? storedImageId : myImageId}.png`;
+    const playerImageSrc = `/public/assets/${storedImageId? storedImageId : myImageId}.png`;
 
     const handleChange = (e) => {
       setNickname(e.target.value);
@@ -33,7 +34,7 @@ function Game(role) {
     }
 
     const addPlayer = () => {
-        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/add_player', {
+        fetch(api + '/api/add_player', {
             method:'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -55,7 +56,7 @@ function Game(role) {
     }
 
     useEffect(() =>{
-        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/is_open')
+        fetch(api + '/api/is_open')
         .then((response) => response.json())
         .then((data) => {
             setIsOpen(data.open)
@@ -64,7 +65,7 @@ function Game(role) {
 
     useEffect(() => {
         const getIsGameRunning = async () => {
-            fetch("https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/is_game_running")
+            fetch(api + "/api/is_game_running")
             .then((response) => response.json())
             .then((data) => {
                 setIsGameRunning(data.bool);
@@ -83,7 +84,7 @@ function Game(role) {
 
     const startGame = () => {
         close()
-        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/start_game', {
+        fetch(api + '/api/start_game', {
             method:'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -93,7 +94,7 @@ function Game(role) {
     }
 
     const close = () => {
-        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/close', {
+        fetch(api + '/api/close', {
             method:'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -143,7 +144,7 @@ function Game(role) {
                                 key != 0 ? (
                                 <>
                                     <span>
-                                        <img src={`/src/assets/${value[2]}.png`} width="50px" height="50px"/>
+                                        <img src={`/public/assets/${value[2]}.png`} width="50px" height="50px"/>
                                         <p style={{margin:0, lineHeight:0}}><strong>{value[0]}</strong></p>
                                     </span> 
                                 </>

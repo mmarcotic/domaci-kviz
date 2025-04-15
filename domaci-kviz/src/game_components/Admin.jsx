@@ -1,5 +1,6 @@
 import { use, useState, useEffect } from 'react'
 import '../App.css'
+import api from '../constants';
 
 function Admin() {
     const [currentQuestion, setCurrentQuestion] = useState(1);
@@ -14,7 +15,7 @@ function Admin() {
 
     
     const getScores = () => {
-        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/scores')
+        fetch(api + '/api/scores')
         .then((response) => response.json())
         .then((data) => {
             setScores(data.message);
@@ -23,7 +24,7 @@ function Admin() {
     }
 
     useEffect(() => {
-        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/get_players')
+        fetch(api + '/api/get_players')
         .then((response) => response.json())
         .then((data) => {
             setPlayers(data.message);
@@ -33,7 +34,7 @@ function Admin() {
 
 
     const addQuestion = () => {
-        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/add_question', {
+        fetch(api + '/api/add_question', {
             method:'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -50,13 +51,13 @@ function Admin() {
     }
 
     const revealAnswer = () => {
-        fetch("https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/reveal_answers").then(
+        fetch(api + "/api/reveal_answers").then(
             setIsRevealed(true)
         )
     }
     
     const endGame = () => {
-        fetch("https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/end_game")
+        fetch(api + "/api/end_game")
     }
 
     const evaluateAnswer = (playerId, evaluation) => {
@@ -65,7 +66,7 @@ function Admin() {
             playerId: playerId,
             eval: evaluation
         }
-        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/submit_answer_eval', {
+        fetch(api + '/api/submit_answer_eval', {
             method:'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -77,7 +78,7 @@ function Admin() {
 
     useEffect(() => {
         const getAnswers = async () => {
-            fetch("https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/get_answers")
+            fetch(api + "/api/get_answers")
             .then((response) => response.json())
             .then((data) => {
                 console.log(data.message[currentQuestion])
@@ -105,7 +106,7 @@ function Admin() {
                     key != 0 ? (
                         <>
                         <span>
-                            <img src={`/src/assets/${value[2]}.png`} width="25px"/><p>{scores[key]}</p>
+                            <img src={`/public/assets/${value[2]}.png`} width="25px"/><p>{scores[key]}</p>
                         </span> 
                         </>
                     ) : (<></>)
@@ -121,7 +122,7 @@ function Admin() {
                         alignItems: "center",
                         backgroundColor: value[1] == true ? "rgba(20, 200, 20, 0.4)" : "rgba(255, 255, 255, 0.4)"}} 
                         className='answer'>
-                        <span><img src={`/src/assets/${players[key][2]}.png`} width="75px"/></span>
+                        <span><img src={`/public/assets/${players[key][2]}.png`} width="75px"/></span>
                         <span>
                             <div><strong>{players[key][0]}</strong></div>
                             <div

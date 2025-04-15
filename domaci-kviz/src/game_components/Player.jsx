@@ -1,5 +1,6 @@
 import { use, useState, useEffect } from 'react'
 import '../App.css'
+import api from '../constants'
 
 function Player(questionCnt) {
     const [answer, setAnswer] = useState("")
@@ -26,7 +27,7 @@ function Player(questionCnt) {
             playerId: playerId,
             answer: answer
         };
-        fetch("https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/answer_question", {
+        fetch(api + "/api/answer_question", {
             method:'POST',
             headers: {
               'Content-Type': 'application/json'

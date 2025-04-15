@@ -1,6 +1,7 @@
 import { use, useState, useEffect } from 'react'
 import './App.css'
 import Game from './Game'
+import api from './constants'
 
 function App() {
   const [sessionExists, createSession] = useState(false);
@@ -8,7 +9,7 @@ function App() {
   const [role, setRole] = useState("player");
 
   useEffect(() => {
-    fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/session')
+    fetch(api + '/api/session')
     .then((response) => response.json())
     .then((data) => {
       data.message != 0 ? createSession(true) : createSession(false)
@@ -18,7 +19,7 @@ function App() {
   console.log(sessionExists)
   
   const createSesh = () => {
-    fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/create_session', {
+    fetch(api + '/api/create_session', {
       method:'POST',
       headers: {
         'Content-Type': 'application/json'

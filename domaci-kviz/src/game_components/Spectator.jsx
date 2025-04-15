@@ -1,5 +1,6 @@
 import { use, useState, useEffect } from 'react'
 import '../App.css'
+import api from '../constants'
 
 function Spectator() {
     const [currentQuestion, setCurrentQuestion] = useState(1);
@@ -14,7 +15,7 @@ function Spectator() {
     // {playerid : (player_name, role, self.__image_ids[player_id])}
 
     const getScores = () => {
-        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/scores')
+        fetch(api + '/api/scores')
         .then((response) => response.json())
         .then((data) => {
             setScores(data.message);
@@ -22,7 +23,7 @@ function Spectator() {
     }
 
     const getWinners = () => {
-        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/get_winners')
+        fetch(api + '/api/get_winners')
         .then((response) => response.json())
         .then((data) => {
             setScoreWeighedPlayers(data.message);
@@ -30,7 +31,7 @@ function Spectator() {
     }
 
     useEffect(() => {
-        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/get_players')
+        fetch(api + '/api/get_players')
         .then((response) => response.json())
         .then((data) => {
             setPlayers(data.message);
@@ -39,7 +40,7 @@ function Spectator() {
 
     useEffect(() => {
         const getAnswers = async () => {
-            fetch("https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/get_answers")
+            fetch(api + "/api/get_answers")
             .then((response) => response.json())
             .then((data) => {
                 setCurrentQuestion(Object.keys(data.message)[Object.keys(data.message).length - 1])
@@ -64,7 +65,7 @@ function Spectator() {
     }, [hasGameEnded])
 
     useEffect(() => {
-        fetch("https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/mocking")
+        fetch(api + "/api/mocking")
         .then((response) => response.json())
         .then((data) => {
             setMockQuotes(data.message)
@@ -82,7 +83,7 @@ function Spectator() {
                         key != 0 ? (
                             <>
                             <span>
-                                <img src={`/src/assets/${value[2]}.png`} width="25px" height="25px"/><p>{scores[key]}</p>
+                                <img src={`/public/assets/${value[2]}.png`} width="25px" height="25px"/><p>{scores[key]}</p>
                             </span> 
                             </>
                         ) : (<></>)
@@ -95,7 +96,7 @@ function Spectator() {
                             display: "flex", 
                             alignItems: "center",
                             backgroundColor: value[1] == true ? "rgba(20, 200, 20, 0.4)" : "rgba(255, 255, 255, 0.4)"}} className='answer'>
-                            <span><img src={`/src/assets/${players[key][2]}.png`} width="75px" height="75px"/></span>
+                            <span><img src={`/public/assets/${players[key][2]}.png`} width="75px" height="75px"/></span>
                             <span>
                                 <div><strong>{players[key][0]}</strong></div>
                                 <div
@@ -122,7 +123,7 @@ function Spectator() {
                                     <><div>
                                         <span className="podium-flex podium-span">
                                         <div style={{fontSize:"1.5rem", marginBottom:"0.5rem"}}><strong>{element[1]}</strong></div>
-                                        <div><img src={`/src/assets/${players[Number(element[0])][2]}.png`} width="50px" height="50px" className='podium-flex'/></div>
+                                        <div><img src={`/public/assets/${players[Number(element[0])][2]}.png`} width="50px" height="50px" className='podium-flex'/></div>
                                         <div className="podium-flex podium" style={{height:`${100 - Math.abs((0.8 - scoreWeighedPlayers.indexOf(element)))*50}px`}}>{
                                         scoreWeighedPlayers.indexOf(element) == 0 ? 2 : (scoreWeighedPlayers.indexOf(element) == 1 ? 1 : 3)
                                         }</div>
@@ -135,7 +136,7 @@ function Spectator() {
                                         <div className="scoreboard">
                                         <span>
                                             <div>
-                                                <img src={`/src/assets/${players[Number(element[0])][2]}.png`} width="50px" height="50px"/>
+                                                <img src={`/public/assets/${players[Number(element[0])][2]}.png`} width="50px" height="50px"/>
                                                 <div className="scoreboard-text">
                                                     <strong>{players[Number(element[0])][0]}</strong>
                                                 </div>
