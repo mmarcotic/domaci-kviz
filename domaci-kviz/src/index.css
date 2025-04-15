@@ -27,7 +27,7 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-  background-image: url("bg.png");
+  background-image: url("../public/bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
