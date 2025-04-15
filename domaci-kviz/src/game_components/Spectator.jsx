@@ -83,7 +83,7 @@ function Spectator() {
                         key != 0 ? (
                             <>
                             <span>
-                                <img src={`/public/assets/${value[2]}.png`} width="25px" height="25px"/><p>{scores[key]}</p>
+                                <img src={`/${value[2]}.png`} width="25px" height="25px"/><p>{scores[key]}</p>
                             </span> 
                             </>
                         ) : (<></>)
@@ -96,7 +96,7 @@ function Spectator() {
                             display: "flex", 
                             alignItems: "center",
                             backgroundColor: value[1] == true ? "rgba(20, 200, 20, 0.4)" : "rgba(255, 255, 255, 0.4)"}} className='answer'>
-                            <span><img src={`/public/assets/${players[key][2]}.png`} width="75px" height="75px"/></span>
+                            <span><img src={`/${players[key][2]}.png`} width="75px" height="75px"/></span>
                             <span>
                                 <div><strong>{players[key][0]}</strong></div>
                                 <div
@@ -123,7 +123,7 @@ function Spectator() {
                                     <><div>
                                         <span className="podium-flex podium-span">
                                         <div style={{fontSize:"1.5rem", marginBottom:"0.5rem"}}><strong>{element[1]}</strong></div>
-                                        <div><img src={`/public/assets/${players[Number(element[0])][2]}.png`} width="50px" height="50px" className='podium-flex'/></div>
+                                        <div><img src={`/${players[Number(element[0])][2]}.png`} width="50px" height="50px" className='podium-flex'/></div>
                                         <div className="podium-flex podium" style={{height:`${100 - Math.abs((0.8 - scoreWeighedPlayers.indexOf(element)))*50}px`}}>{
                                         scoreWeighedPlayers.indexOf(element) == 0 ? 2 : (scoreWeighedPlayers.indexOf(element) == 1 ? 1 : 3)
                                         }</div>
@@ -136,7 +136,7 @@ function Spectator() {
                                         <div className="scoreboard">
                                         <span>
                                             <div>
-                                                <img src={`/public/assets/${players[Number(element[0])][2]}.png`} width="50px" height="50px"/>
+                                                <img src={`/${players[Number(element[0])][2]}.png`} width="50px" height="50px"/>
                                                 <div className="scoreboard-text">
                                                     <strong>{players[Number(element[0])][0]}</strong>
                                                 </div>

@@ -106,7 +106,7 @@ function Admin() {
                     key != 0 ? (
                         <>
                         <span>
-                            <img src={`/public/assets/${value[2]}.png`} width="25px"/><p>{scores[key]}</p>
+                            <img src={`/${value[2]}.png`} width="25px"/><p>{scores[key]}</p>
                         </span> 
                         </>
                     ) : (<></>)
@@ -122,7 +122,7 @@ function Admin() {
                         alignItems: "center",
                         backgroundColor: value[1] == true ? "rgba(20, 200, 20, 0.4)" : "rgba(255, 255, 255, 0.4)"}} 
                         className='answer'>
-                        <span><img src={`/public/assets/${players[key][2]}.png`} width="75px"/></span>
+                        <span><img src={`/${players[key][2]}.png`} width="75px"/></span>
                         <span>
                             <div><strong>{players[key][0]}</strong></div>
                             <div

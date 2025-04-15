@@ -23,7 +23,7 @@ function Game(role) {
     const [finalRole, setFinalRole] = useState(storedRole ? storedRole : role.role);
 
     // this has to be done on BE
-    const playerImageSrc = `/public/assets/${storedImageId? storedImageId : myImageId}.png`;
+    const playerImageSrc = `/${storedImageId? storedImageId : myImageId}.png`;
 
     const handleChange = (e) => {
       setNickname(e.target.value);
@@ -144,7 +144,7 @@ function Game(role) {
                                 key != 0 ? (
                                 <>
                                     <span>
-                                        <img src={`/public/assets/${value[2]}.png`} width="50px" height="50px"/>
+                                        <img src={`/${value[2]}.png`} width="50px" height="50px"/>
                                         <p style={{margin:0, lineHeight:0}}><strong>{value[0]}</strong></p>
                                     </span> 
                                 </>
