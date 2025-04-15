@@ -14,7 +14,7 @@ function Admin() {
 
     
     const getScores = () => {
-        fetch('http://127.0.0.1:5000/api/scores')
+        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/scores')
         .then((response) => response.json())
         .then((data) => {
             setScores(data.message);
@@ -23,7 +23,7 @@ function Admin() {
     }
 
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/api/get_players')
+        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/get_players')
         .then((response) => response.json())
         .then((data) => {
             setPlayers(data.message);
@@ -33,7 +33,7 @@ function Admin() {
 
 
     const addQuestion = () => {
-        fetch('http://127.0.0.1:5000/api/add_question', {
+        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/add_question', {
             method:'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -50,13 +50,13 @@ function Admin() {
     }
 
     const revealAnswer = () => {
-        fetch("http://127.0.0.1:5000/api/reveal_answers").then(
+        fetch("https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/reveal_answers").then(
             setIsRevealed(true)
         )
     }
     
     const endGame = () => {
-        fetch("http://127.0.0.1:5000/api/end_game")
+        fetch("https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/end_game")
     }
 
     const evaluateAnswer = (playerId, evaluation) => {
@@ -65,7 +65,7 @@ function Admin() {
             playerId: playerId,
             eval: evaluation
         }
-        fetch('http://127.0.0.1:5000/api/submit_answer_eval', {
+        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/submit_answer_eval', {
             method:'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -77,7 +77,7 @@ function Admin() {
 
     useEffect(() => {
         const getAnswers = async () => {
-            fetch("http://127.0.0.1:5000/api/get_answers")
+            fetch("https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/get_answers")
             .then((response) => response.json())
             .then((data) => {
                 console.log(data.message[currentQuestion])

@@ -26,7 +26,7 @@ function Player(questionCnt) {
             playerId: playerId,
             answer: answer
         };
-        fetch("http://127.0.0.1:5000/api/answer_question", {
+        fetch("https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/answer_question", {
             method:'POST',
             headers: {
               'Content-Type': 'application/json'

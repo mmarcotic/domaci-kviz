@@ -33,7 +33,7 @@ function Game(role) {
     }
 
     const addPlayer = () => {
-        fetch('http://127.0.0.1:5000/api/add_player', {
+        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/add_player', {
             method:'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -55,7 +55,7 @@ function Game(role) {
     }
 
     useEffect(() =>{
-        fetch('http://127.0.0.1:5000/api/is_open')
+        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/is_open')
         .then((response) => response.json())
         .then((data) => {
             setIsOpen(data.open)
@@ -64,7 +64,7 @@ function Game(role) {
 
     useEffect(() => {
         const getIsGameRunning = async () => {
-            fetch("http://127.0.0.1:5000/api/is_game_running")
+            fetch("https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/is_game_running")
             .then((response) => response.json())
             .then((data) => {
                 setIsGameRunning(data.bool);
@@ -83,7 +83,7 @@ function Game(role) {
 
     const startGame = () => {
         close()
-        fetch('http://127.0.0.1:5000/api/start_game', {
+        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/start_game', {
             method:'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -93,7 +93,7 @@ function Game(role) {
     }
 
     const close = () => {
-        fetch('http://127.0.0.1:5000/api/close', {
+        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/close', {
             method:'POST',
             headers: {
               'Content-Type': 'application/json'

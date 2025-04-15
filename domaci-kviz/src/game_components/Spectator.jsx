@@ -14,7 +14,7 @@ function Spectator() {
     // {playerid : (player_name, role, self.__image_ids[player_id])}
 
     const getScores = () => {
-        fetch('http://127.0.0.1:5000/api/scores')
+        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/scores')
         .then((response) => response.json())
         .then((data) => {
             setScores(data.message);
@@ -22,7 +22,7 @@ function Spectator() {
     }
 
     const getWinners = () => {
-        fetch('http://127.0.0.1:5000/api/get_winners')
+        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/get_winners')
         .then((response) => response.json())
         .then((data) => {
             setScoreWeighedPlayers(data.message);
@@ -30,7 +30,7 @@ function Spectator() {
     }
 
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/api/get_players')
+        fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/get_players')
         .then((response) => response.json())
         .then((data) => {
             setPlayers(data.message);
@@ -39,7 +39,7 @@ function Spectator() {
 
     useEffect(() => {
         const getAnswers = async () => {
-            fetch("http://127.0.0.1:5000/api/get_answers")
+            fetch("https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/get_answers")
             .then((response) => response.json())
             .then((data) => {
                 setCurrentQuestion(Object.keys(data.message)[Object.keys(data.message).length - 1])
@@ -64,7 +64,7 @@ function Spectator() {
     }, [hasGameEnded])
 
     useEffect(() => {
-        fetch("http://127.0.0.1:5000/api/mocking")
+        fetch("https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/mocking")
         .then((response) => response.json())
         .then((data) => {
             setMockQuotes(data.message)

@@ -8,7 +8,7 @@ function App() {
   const [role, setRole] = useState("player");
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/session')
+    fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/session')
     .then((response) => response.json())
     .then((data) => {
       data.message != 0 ? createSession(true) : createSession(false)
@@ -18,7 +18,7 @@ function App() {
   console.log(sessionExists)
   
   const createSesh = () => {
-    fetch('http://127.0.0.1:5000/api/create_session', {
+    fetch('https://2c556e91271c801ef34e7acbdc666a0d.serveo.net/api/create_session', {
       method:'POST',
       headers: {
         'Content-Type': 'application/json'
