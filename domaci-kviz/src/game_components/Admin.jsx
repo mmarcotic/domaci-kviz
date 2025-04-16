@@ -127,8 +127,6 @@ function Admin() {
                             <div><strong>{players[key][0]}</strong></div>
                             <div
                                 style={{
-                                    filter: isRevealed ? 'none' : 'blur(10px)',
-                                    transition: 'filter 0.3s ease',
                                     fontWeight: 450
                                 }}
                             >{value[0]}</div>
