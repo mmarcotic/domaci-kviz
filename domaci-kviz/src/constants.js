@@ -1,3 +1,3 @@
-const api = "https://b8e0683ec2979b486dc749d9cc38849f.serveo.net";
+const api = "https://8184e766960923389d237223f35bb936.serveo.net";
 
 export default api;
